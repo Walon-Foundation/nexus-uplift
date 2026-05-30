@@ -24,7 +24,7 @@ Nexus Uplift was founded after a child died from a treatable asthma attack while
 | **Privacy Policy** | Data handling and user privacy |
 | **Terms of Service** | Usage terms for the site |
 
-### Health Topics Addressed
+### Health Topics We Plan to Cover
 
 - **Asthma** — airway inflammation, trigger management, inhaler use
 - **Mental Health** — depression, anxiety, emotion literacy, destigmatisation
