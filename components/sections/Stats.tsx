@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 500, suffix: "+",     static: false, display: "",        label: "Kids to Reach",    desc: "Children we aim to equip with science-based health education in Year 1" },
-  { value: 6,   suffix: "",      static: false, display: "",        label: "Health Topics",    desc: "Conditions we will demystify and address in every workshop" },
-  { value: 12,  suffix: "+",     static: false, display: "",        label: "Communities",      desc: "Communities we are targeting across the region in our first year" },
-  { value: 0,   suffix: "",      static: true,  display: "2–3 hrs", label: "Per Workshop",     desc: "Each session runs two to three hours, with separate streams for children and caregivers" },
+  { value: 500, suffix: "+", fixed: false, display: "",        label: "Kids to Reach",    desc: "Children we aim to equip with science-based health education in Year 1" },
+  { value: 6,   suffix: "",  fixed: false, display: "",        label: "Health Topics",    desc: "Conditions we will demystify and address in every workshop" },
+  { value: 12,  suffix: "+", fixed: false, display: "",        label: "Communities",      desc: "Communities we are targeting across the region in our first year" },
+  { value: 0,   suffix: "",  fixed: true,  display: "2–3 hrs", label: "Per Workshop",     desc: "Each session runs two to three hours, with separate streams for children and caregivers" },
 ];
 
 function Counter({ to, suffix, inView }: { to: number; suffix: string; inView: boolean }) {
@@ -55,7 +55,7 @@ export function Stats() {
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map(({ value, suffix, static: isStatic, display, label, desc }, i) => (
+          {stats.map(({ value, suffix, fixed, display, label, desc }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export function Stats() {
             >
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
               <p className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-br from-primary to-orange-400 bg-clip-text text-transparent tracking-tight mb-3 leading-none">
-                {isStatic ? display : <Counter to={value} suffix={suffix} inView={inView} />}
+                {fixed ? display : <Counter to={value} suffix={suffix} inView={inView} />}
               </p>
               <p className="font-semibold text-sm text-foreground mb-2">{label}</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
