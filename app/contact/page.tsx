@@ -21,11 +21,30 @@ const howWeHelp = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "", role: "community-member" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -186,9 +205,12 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="gap-2">
+                  {error && (
+                    <p className="text-sm text-red-500">{error}</p>
+                  )}
+                  <Button type="submit" size="lg" className="gap-2" disabled={loading}>
                     <Send className="w-4 h-4" />
-                    Send Message
+                    {loading ? "Sending…" : "Send Message"}
                   </Button>
                 </form>
               )}

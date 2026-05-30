@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Kids Educated", desc: "Children who received science-based health education" },
-  { value: 6,   suffix: "",  label: "Health Topics",  desc: "Conditions demystified and covered in workshops" },
-  { value: 12,  suffix: "+", label: "Communities",    desc: "Communities reached across the region" },
-  { value: 95,  suffix: "%", label: "Myth Rejection", desc: "Of participants reject health superstitions after workshops" },
+  { value: 500, suffix: "+", label: "Kids to Reach",   desc: "Children we aim to equip with science-based health education in Year 1" },
+  { value: 6,   suffix: "",  label: "Health Topics",   desc: "Conditions we will demystify and address in every workshop" },
+  { value: 12,  suffix: "+", label: "Communities",     desc: "Communities we are targeting across the region in our first year" },
+  { value: 95,  suffix: "%", label: "Myth Rejection",  desc: "Target rate of participants who reject health superstitions post-workshop" },
 ];
 
 function Counter({ to, suffix, inView }: { to: number; suffix: string; inView: boolean }) {
@@ -43,14 +43,14 @@ export function Stats() {
         >
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
-              Our Impact
+              Year 1 Goals
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Small Numbers, Big Meaning
+              What We Are Building Toward
             </h2>
           </div>
           <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
-            Every child counts. These numbers represent real lives changed by health knowledge.
+            We are at the start. These are the targets we have set for our first year of operation.
           </p>
         </motion.div>
 

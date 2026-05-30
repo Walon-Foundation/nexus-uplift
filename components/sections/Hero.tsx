@@ -12,6 +12,14 @@ export function Hero() {
 
       {/* ── Gradient mesh ── */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.35] dark:opacity-[0.15]"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
         <div
           className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-primary/[0.12] blur-[120px]"
           style={{ animation: "drift-1 10s ease-in-out infinite" }}

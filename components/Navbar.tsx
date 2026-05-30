@@ -5,16 +5,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Sun, Moon, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/LogoMark";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/",        label: "Home" },
-  { href: "/#mission", label: "Mission" },
-  { href: "/#topics",  label: "Health Topics" },
-  { href: "/about",   label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/",             label: "Home" },
+  { href: "/#mission",     label: "Mission" },
+  { href: "/#mythbuster",  label: "Myth vs. Fact" },
+  { href: "/#topics",      label: "Health Topics" },
+  { href: "/how-we-work",  label: "How We Work" },
+  { href: "/about",        label: "About" },
+  { href: "/contact",      label: "Contact" },
 ];
 
 function isActive(href: string, pathname: string) {
@@ -109,36 +112,54 @@ export function Navbar() {
       </nav>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-background border-b border-border">
-          <ul className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-0.5">
-            {links.map(({ href, label }) => {
-              const active = isActive(href, pathname);
-              return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className={cn(
-                      "block px-3 py-2.5 rounded-md text-sm transition-colors",
-                      active
-                        ? "text-foreground font-semibold bg-foreground/[0.06]"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    )}
-                    onClick={() => setMobileOpen(false)}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-border"
+          >
+            <ul className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-0.5">
+              {links.map(({ href, label }, i) => {
+                const active = isActive(href, pathname);
+                return (
+                  <motion.li
+                    key={href}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.2 }}
                   >
-                    {label}
-                  </Link>
-                </li>
-              );
-            })}
-            <li className="pt-2 pb-1">
-              <Button className="w-full" onClick={() => (window.location.href = "/contact")}>
-                Get Involved
-              </Button>
-            </li>
-          </ul>
-        </div>
-      )}
+                    <Link
+                      href={href}
+                      className={cn(
+                        "block px-3 py-2.5 rounded-md text-sm transition-colors",
+                        active
+                          ? "text-foreground font-semibold bg-foreground/[0.06]"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      )}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  </motion.li>
+                );
+              })}
+              <motion.li
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: links.length * 0.04, duration: 0.2 }}
+                className="pt-2 pb-1"
+              >
+                <Button className="w-full" onClick={() => (window.location.href = "/contact")}>
+                  Get Involved
+                </Button>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
