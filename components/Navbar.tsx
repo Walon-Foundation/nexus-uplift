@@ -63,7 +63,7 @@ export function Navbar() {
                 <Link
                   href={href}
                   className={cn(
-                    "relative px-3.5 py-2 rounded-md text-sm transition-colors duration-150 flex flex-col items-center gap-0.5",
+                    "relative px-3.5 py-2 rounded-md text-sm transition-colors duration-150 flex flex-col items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                     active
                       ? "text-foreground font-semibold"
                       : "text-muted-foreground hover:text-foreground"
@@ -89,7 +89,7 @@ export function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -103,7 +103,7 @@ export function Navbar() {
             Get Involved
           </Button>
           <button
-            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
           >

@@ -87,14 +87,14 @@ export function Testimonials() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => go(index - 1, -1)}
-              className="w-10 h-10 rounded-full backdrop-blur-md bg-white/70 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] hover:border-primary/50 shadow-[0_1px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-200"
+              className="w-10 h-10 rounded-full backdrop-blur-md bg-white/70 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] hover:border-primary/50 shadow-[0_1px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Previous"
             >
               <ChevronLeft className="w-4 h-4 text-muted-foreground" />
             </button>
             <button
               onClick={() => go(index + 1, 1)}
-              className="w-10 h-10 rounded-full backdrop-blur-md bg-white/70 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] hover:border-primary/50 shadow-[0_1px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-200"
+              className="w-10 h-10 rounded-full backdrop-blur-md bg-white/70 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] hover:border-primary/50 shadow-[0_1px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Next"
             >
               <ChevronRight className="w-4 h-4 text-muted-foreground" />

@@ -89,6 +89,7 @@ export function MythBuster() {
               className={`
                 flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-full text-sm font-semibold whitespace-nowrap shrink-0
                 border transition-all duration-200 min-h-[44px] sm:min-h-0
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
                 ${active === i
                   ? "bg-primary text-white border-primary shadow-[0_4px_16px_rgba(232,93,63,0.3)]"
                   : "bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm border-black/[0.08] dark:border-white/[0.08] text-muted-foreground hover:border-primary/40 hover:text-foreground"
@@ -163,13 +164,17 @@ export function MythBuster() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className="h-[3px] rounded-full transition-all duration-300"
-              style={{
-                width: i === active ? 28 : 12,
-                background: i === active ? "var(--primary)" : "var(--border)",
-              }}
+              className="py-3 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
               aria-label={`Select topic ${i + 1}`}
-            />
+            >
+              <span
+                className="block h-2 rounded-full transition-all duration-300"
+                style={{
+                  width: i === active ? 28 : 8,
+                  background: i === active ? "var(--primary)" : "var(--border)",
+                }}
+              />
+            </button>
           ))}
           <span className="ml-auto text-xs text-muted-foreground tabular-nums">
             {active + 1} / {topics.length}
