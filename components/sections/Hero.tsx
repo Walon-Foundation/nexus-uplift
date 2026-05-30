@@ -39,7 +39,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-24 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 lg:pt-36 pb-16 sm:pb-24 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left — text */}
@@ -67,7 +67,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.0] tracking-tight text-foreground mb-7"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-foreground mb-6 sm:mb-7"
             >
               Empowering
               <br />
@@ -80,7 +80,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.18 }}
-              className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-md"
+              className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 sm:mb-10 max-w-md"
             >
               Nexus Uplift Foundation replaces dangerous health myths with
               science — giving every child a clear, accurate understanding

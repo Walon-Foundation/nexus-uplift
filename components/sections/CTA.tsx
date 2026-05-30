@@ -10,7 +10,7 @@ export function CTA() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 bg-[#1a2744] dark:bg-[#0d1220]">
+    <section className="py-16 sm:py-24 bg-[#1a2744] dark:bg-[#0d1220]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

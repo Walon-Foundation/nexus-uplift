@@ -49,7 +49,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <LogoMark size={28} />
-          <span className="font-semibold text-base text-foreground tracking-tight">
+          <span className="font-semibold text-sm sm:text-base text-foreground tracking-tight">
             Nexus Uplift
           </span>
         </Link>

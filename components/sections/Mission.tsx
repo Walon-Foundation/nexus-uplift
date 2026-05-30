@@ -49,9 +49,9 @@ export function Mission() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="mission" className="py-24 bg-muted">
+    <section id="mission" className="py-16 sm:py-24 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left — text */}
           <motion.div

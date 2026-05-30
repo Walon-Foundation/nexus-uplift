@@ -160,7 +160,7 @@ export function HealthTopics() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="topics" className="py-24 bg-[#0f1117] relative overflow-hidden">
+    <section id="topics" className="py-16 sm:py-24 bg-[#0f1117] relative overflow-hidden">
       {/* Subtle background noise */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"

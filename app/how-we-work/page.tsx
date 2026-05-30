@@ -287,7 +287,7 @@ export default function HowWeWorkPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
           >
             {[
               { metric: "Myth Rejection Rate", detail: "Primary metric — percentage of participants who correctly identify health conditions as medical post-workshop", target: "Target: 90%+" },

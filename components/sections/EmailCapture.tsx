@@ -65,7 +65,7 @@ export function EmailCapture() {
               </div>
               <form
                 onSubmit={handleSubmit}
-                className="flex gap-2 w-full sm:w-auto"
+                className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto"
               >
                 <input
                   type="email"
@@ -73,10 +73,11 @@ export function EmailCapture() {
                   placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 sm:w-56 px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground"
+                  className="w-full sm:w-56 px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground"
                 />
-                <Button type="submit" size="default">
+                <Button type="submit" size="default" className="w-full sm:w-auto">
                   <ArrowRight className="w-4 h-4" />
+                  <span className="sm:hidden ml-2">Stay Updated</span>
                 </Button>
               </form>
             </div>

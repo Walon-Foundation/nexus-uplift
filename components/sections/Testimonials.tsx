@@ -64,7 +64,7 @@ export function Testimonials() {
   const t = testimonials[index];
 
   return (
-    <section className="py-24 bg-muted" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section className="py-16 sm:py-24 bg-muted" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -116,12 +116,12 @@ export function Testimonials() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="p-8 sm:p-12"
+                className="p-5 sm:p-8 md:p-12"
               >
                 {/* Coral accent */}
                 <div className="w-8 h-[3px] bg-primary rounded mb-6" />
 
-                <blockquote className="text-foreground text-lg sm:text-xl leading-relaxed mb-8 font-medium max-w-3xl">
+                <blockquote className="text-foreground text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 font-medium max-w-3xl">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 

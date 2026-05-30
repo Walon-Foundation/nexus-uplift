@@ -51,7 +51,7 @@ export function MythBuster() {
   const topic = topics[active];
 
   return (
-    <section id="mythbuster" className="py-24 bg-background border-y border-border">
+    <section id="mythbuster" className="py-16 sm:py-24 bg-background border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -75,27 +75,27 @@ export function MythBuster() {
           </div>
         </motion.div>
 
-        {/* Tab row */}
+        {/* Tab row — horizontal scroll on mobile, wrap on sm+ */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="flex flex-wrap gap-2 mb-10"
+          className="flex gap-2 mb-10 overflow-x-auto scrollbar-none pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap"
         >
           {topics.map(({ label, icon: Icon }, i) => (
             <button
               key={label}
               onClick={() => setActive(i)}
               className={`
-                flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold
-                border transition-all duration-200
+                flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-full text-sm font-semibold whitespace-nowrap shrink-0
+                border transition-all duration-200 min-h-[44px] sm:min-h-0
                 ${active === i
                   ? "bg-primary text-white border-primary shadow-[0_4px_16px_rgba(232,93,63,0.3)]"
                   : "bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm border-black/[0.08] dark:border-white/[0.08] text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 }
               `}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon className="w-3.5 h-3.5 shrink-0" />
               {label}
             </button>
           ))}
@@ -112,7 +112,7 @@ export function MythBuster() {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6"
           >
             {/* Myth */}
-            <div className="relative rounded-2xl p-7 overflow-hidden
+            <div className="relative rounded-2xl p-5 sm:p-7 overflow-hidden
               bg-red-50/80 dark:bg-red-950/20
               backdrop-blur-md
               border border-red-200/60 dark:border-red-500/15
@@ -134,7 +134,7 @@ export function MythBuster() {
             </div>
 
             {/* Fact */}
-            <div className="relative rounded-2xl p-7 overflow-hidden
+            <div className="relative rounded-2xl p-5 sm:p-7 overflow-hidden
               bg-emerald-50/80 dark:bg-emerald-950/20
               backdrop-blur-md
               border border-emerald-200/60 dark:border-emerald-500/15
