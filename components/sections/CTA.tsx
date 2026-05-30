@@ -33,7 +33,7 @@ export function CTA() {
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
             Get Involved
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-white mb-5">
             Help Us Reach Every Child
           </h2>
           <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-xl mx-auto">

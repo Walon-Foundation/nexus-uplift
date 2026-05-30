@@ -67,8 +67,6 @@ const principles = [
   },
 ];
 
-const item = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
 
 const cardClasses = `
   group relative w-full rounded-2xl p-5 sm:p-6 overflow-hidden
@@ -189,7 +187,7 @@ export default function HowWeWorkPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">Our Method</p>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-6">
+            <h1 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-6">
               How We Work
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -212,7 +210,7 @@ export default function HowWeWorkPage() {
             className="mb-16"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">The Process</p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">Six Steps, One Goal</h2>
+            <h2 className="font-display text-3xl tracking-tight text-foreground">Six Steps, One Goal</h2>
           </motion.div>
 
           {/* Timeline wrapper — desktop vertical line */}
@@ -232,19 +230,18 @@ export default function HowWeWorkPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Principles</p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">What We Will Never Compromise On</h2>
+            <h2 className="font-display text-3xl tracking-tight text-foreground">What We Will Never Compromise On</h2>
           </div>
           <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           >
             {principles.map(({ title, desc }) => (
-              <motion.div
+              <div
                 key={title}
-                variants={item}
                 className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl
                   border border-black/[0.07] dark:border-white/[0.08]
                   shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
@@ -254,7 +251,7 @@ export default function HowWeWorkPage() {
                 <div className="w-1.5 h-6 rounded-full bg-primary mb-4" />
                 <h3 className="font-semibold text-sm text-foreground mb-2">{title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -265,7 +262,7 @@ export default function HowWeWorkPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Measurement</p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">How We Know It Is Working</h2>
+            <h2 className="font-display text-3xl tracking-tight text-foreground">How We Know It Is Working</h2>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -306,7 +303,7 @@ export default function HowWeWorkPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Want to Bring a Workshop to Your Community?</h2>
+            <h2 className="font-display text-3xl text-foreground mb-4">Want to Bring a Workshop to Your Community?</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               We welcome schools, community organisations, clinics, and local leaders who want to partner with us.
             </p>

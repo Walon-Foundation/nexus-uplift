@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
   --color-background: var(--background);
@@ -23,21 +23,21 @@
 
 /* ── Light mode ── */
 :root {
-  --background: #ffffff;
+  --background: #fdfaf7;
   --foreground: #1a2744;
-  --card: rgba(255, 255, 255, 0.72);
+  --card: rgba(255, 255, 255, 0.75);
   --card-foreground: #1a2744;
-  --primary: #e85d3f;
+  --primary: #d4522e;
   --primary-foreground: #ffffff;
   --secondary: #1a2744;
   --secondary-foreground: #ffffff;
-  --muted: #f7f8fa;
+  --muted: #f2ede8;
   --muted-foreground: #64748b;
-  --accent: #e85d3f;
+  --accent: #d4522e;
   --accent-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.08);
-  --input: #f1f4f8;
-  --ring: #e85d3f;
+  --input: #ede8e2;
+  --ring: #d4522e;
 }
 
 /* ── Dark mode ── */
@@ -46,17 +46,17 @@
   --foreground: #e8ebf0;
   --card: rgba(255, 255, 255, 0.04);
   --card-foreground: #e8ebf0;
-  --primary: #e85d3f;
+  --primary: #d4522e;
   --primary-foreground: #ffffff;
   --secondary: #e8ebf0;
   --secondary-foreground: #0f1117;
   --muted: #1e2535;
   --muted-foreground: #8896ab;
-  --accent: #e85d3f;
+  --accent: #d4522e;
   --accent-foreground: #ffffff;
   --border: rgba(255, 255, 255, 0.09);
   --input: #1e2535;
-  --ring: #e85d3f;
+  --ring: #d4522e;
 }
 
 /* ── Gradient mesh animations ── */
@@ -71,6 +71,13 @@
 @keyframes drift-3 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50%       { transform: translate(20px, -20px) scale(1.04); }
+}
+
+/* ── Display font utility ── */
+.font-display {
+  font-family: var(--font-dm-serif), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* ── Base ── */

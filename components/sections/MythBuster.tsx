@@ -66,7 +66,7 @@ export function MythBuster() {
             Myth vs. Fact
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
               What We Are Up Against
             </h2>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">

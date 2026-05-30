@@ -45,7 +45,7 @@ export function Stats() {
             <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
               Year 1 Goals
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground">
               What We Are Building Toward
             </h2>
           </div>
@@ -54,13 +54,15 @@ export function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map(({ value, suffix, fixed, display, label, desc }, i) => (
-            <motion.div
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          {stats.map(({ value, suffix, fixed, display, label, desc }) => (
+            <div
               key={label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: i * 0.1 }}
               className="group relative rounded-2xl p-6 sm:p-8 overflow-hidden
                 bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
                 border border-black/[0.07] dark:border-white/[0.08]
@@ -77,9 +79,9 @@ export function Stats() {
               </p>
               <p className="font-semibold text-sm text-foreground mb-2">{label}</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

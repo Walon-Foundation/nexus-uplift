@@ -35,14 +35,6 @@ const pillars = [
   },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
-};
 
 export function Mission() {
   const ref = useRef<HTMLDivElement>(null);
@@ -63,7 +55,7 @@ export function Mission() {
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
               Our Mission
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-foreground mb-6 leading-tight">
               Replacing Myths With Medical Facts
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-5">
@@ -80,15 +72,14 @@ export function Mission() {
 
           {/* Right — pillar cards */}
           <motion.div
-            variants={container}
-            initial="hidden"
-            animate={inView ? "show" : "hidden"}
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {pillars.map(({ num, icon: Icon, title, tag, desc }) => (
-              <motion.div
+              <div
                 key={title}
-                variants={item}
                 className="
                   group relative rounded-2xl p-6 overflow-hidden
                   bg-white/70 dark:bg-white/[0.04]
@@ -140,9 +131,10 @@ export function Mission() {
                   {tag}
                 </span>
 
-              </motion.div>
+              </div>
             ))}
           </motion.div>
+
 
         </div>
       </div>

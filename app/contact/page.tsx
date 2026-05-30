@@ -54,7 +54,7 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">Contact</p>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-5">
+            <h1 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-5">
               Get In Touch
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">

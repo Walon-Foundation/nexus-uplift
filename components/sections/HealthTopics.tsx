@@ -85,14 +85,6 @@ const topics = [
   },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
 
 function GlassCard({ topic }: { topic: (typeof topics)[number] }) {
   const Icon = topic.icon;
@@ -181,7 +173,7 @@ export function HealthTopics() {
             Health Topics
           </p>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            <h2 className="font-display text-3xl sm:text-4xl tracking-tight text-white">
               Science Over Superstition
             </h2>
             <p className="text-white/40 max-w-sm text-sm leading-relaxed">
@@ -192,15 +184,13 @@ export function HealthTopics() {
 
         {/* Cards */}
         <motion.div
-          variants={container}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {topics.map((topic) => (
-            <motion.div key={topic.title} variants={item}>
-              <GlassCard topic={topic} />
-            </motion.div>
+            <GlassCard key={topic.title} topic={topic} />
           ))}
         </motion.div>
 

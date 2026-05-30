@@ -38,8 +38,6 @@ const values = [
   { icon: Users, label: "Inclusion", desc: "We reach rural and urban communities equally, in local languages." },
 ];
 
-const item = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 
 export default function AboutPage() {
   return (
@@ -49,7 +47,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">About Us</p>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-6">
+            <h1 className="font-display text-4xl sm:text-5xl tracking-tight text-foreground mb-6">
               The Story Behind Nexus Uplift
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -100,19 +98,18 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Values</p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">What We Stand For</h2>
+            <h2 className="font-display text-3xl tracking-tight text-foreground">What We Stand For</h2>
           </div>
           <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           >
             {values.map(({ icon: Icon, label, desc }) => (
-              <motion.div
+              <div
                 key={label}
-                variants={item}
                 className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:border-primary/40 hover:shadow-[0_6px_28px_rgba(232,93,63,0.1)] transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4">
@@ -120,7 +117,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-semibold text-sm text-foreground mb-2">{label}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -131,17 +128,17 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">Team</p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">Meet the People Behind the Work</h2>
+            <h2 className="font-display text-3xl tracking-tight text-foreground">Meet the People Behind the Work</h2>
           </div>
           <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           >
             {team.map((member) => (
-              <motion.div key={member.name} variants={item}>
+              <div key={member.name}>
                 <div className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.1)] transition-all duration-200">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary mb-4">
                     {member.initials}
@@ -150,7 +147,7 @@ export default function AboutPage() {
                   <p className="text-xs text-primary font-medium mb-3">{member.role}</p>
                   <p className="text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
@@ -165,7 +162,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold text-foreground mb-4">Want to Join Us?</h2>
+            <h2 className="font-display text-3xl text-foreground mb-4">Want to Join Us?</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               We welcome healthcare professionals, educators, volunteers, and community partners.
             </p>
