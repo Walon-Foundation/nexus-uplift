@@ -11,13 +11,9 @@ import { LogoMark } from "@/components/LogoMark";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/",             label: "Home" },
-  { href: "/#mission",     label: "Mission" },
-  { href: "/#mythbuster",  label: "Myth vs. Fact" },
-  { href: "/#topics",      label: "Health Topics" },
-  { href: "/how-we-work",  label: "How We Work" },
-  { href: "/about",        label: "About" },
-  { href: "/contact",      label: "Contact" },
+  { href: "/how-we-work", label: "How We Work" },
+  { href: "/about",       label: "About" },
+  { href: "/contact",     label: "Contact" },
 ];
 
 function isActive(href: string, pathname: string) {

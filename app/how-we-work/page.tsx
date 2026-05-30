@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
   MapPin, Users, BookOpen, ClipboardCheck,
   MessageCircle, Microscope, RefreshCw, BarChart3,
+  LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { Metadata } from "next";
 
 const steps = [
   {
@@ -81,6 +82,119 @@ const principles = [
 const item = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
 
+function TimelineStep({
+  step,
+  index,
+}: {
+  step: { num: string; icon: LucideIcon; title: string; desc: string };
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const isLeft = index % 2 === 0;
+  const Icon = step.icon;
+
+  return (
+    <div ref={ref} className="relative grid md:grid-cols-[1fr_48px_1fr] gap-0 items-start mb-12 last:mb-0">
+
+      {/* Left card slot */}
+      <div className={`hidden md:flex justify-end pr-6 ${isLeft ? "" : "invisible"}`}>
+        <motion.div
+          initial={{ opacity: 0, x: -32 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="group relative max-w-sm w-full rounded-2xl p-6 overflow-hidden
+            bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
+            border border-black/[0.07] dark:border-white/[0.08]
+            shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
+            dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
+            hover:border-primary/30 transition-all duration-200"
+        >
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+          <span className="absolute top-4 right-5 text-4xl font-black text-foreground/[0.04] select-none">{step.num}</span>
+          <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4 group-hover:bg-primary/[0.14] transition-colors">
+            <Icon className="w-5 h-5 text-primary" />
+          </div>
+          <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+        </motion.div>
+      </div>
+
+      {/* Centre dot */}
+      <div className="hidden md:flex flex-col items-center">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={inView ? { scale: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.35, delay: 0.1, type: "spring", stiffness: 300, damping: 20 }}
+          className="w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10
+            shadow-[0_0_0_4px_var(--background),0_0_0_6px_var(--primary)]"
+        >
+          <span className="text-white text-xs font-bold">{step.num}</span>
+        </motion.div>
+      </div>
+
+      {/* Right card slot */}
+      <div className={`md:pl-6 ${isLeft ? "invisible hidden md:block" : ""}`}>
+        {/* Mobile card (always visible) */}
+        <motion.div
+          initial={{ opacity: 0, x: 32 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className={`group relative max-w-sm w-full rounded-2xl p-6 overflow-hidden
+            bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
+            border border-black/[0.07] dark:border-white/[0.08]
+            shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
+            dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
+            hover:border-primary/30 transition-all duration-200
+            ${isLeft ? "md:invisible" : ""}
+          `}
+        >
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+          <span className="absolute top-4 right-5 text-4xl font-black text-foreground/[0.04] select-none">{step.num}</span>
+          <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4 group-hover:bg-primary/[0.14] transition-colors">
+            <Icon className="w-5 h-5 text-primary" />
+          </div>
+          <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+        </motion.div>
+      </div>
+
+      {/* Mobile layout: dot + card stacked */}
+      <div className="md:hidden flex gap-4 col-span-full">
+        <div className="flex flex-col items-center gap-0 pt-1 shrink-0">
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={inView ? { scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.35, delay: 0.1, type: "spring", stiffness: 300, damping: 20 }}
+            className="w-8 h-8 rounded-full bg-primary flex items-center justify-center z-10 shrink-0
+              shadow-[0_0_0_3px_var(--background),0_0_0_5px_var(--primary)]"
+          >
+            <span className="text-white text-[10px] font-bold">{step.num}</span>
+          </motion.div>
+          <div className="w-px flex-1 bg-border mt-2" />
+        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="group relative flex-1 rounded-2xl p-5 mb-2 overflow-hidden
+            bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
+            border border-black/[0.07] dark:border-white/[0.08]
+            shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
+            dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]"
+        >
+          <div className="w-9 h-9 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-3">
+            <Icon className="w-4 h-4 text-primary" />
+          </div>
+          <h3 className="font-bold text-sm text-foreground mb-1.5">{step.title}</h3>
+          <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+        </motion.div>
+      </div>
+
+    </div>
+  );
+}
+
 export default function HowWeWorkPage() {
   return (
     <div className="pt-20 pb-24">
@@ -102,53 +216,29 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      {/* Process steps */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+      {/* Process steps — animated timeline */}
+      <section className="py-20 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">The Process</p>
             <h2 className="text-3xl font-bold tracking-tight text-foreground">Eight Steps, One Goal</h2>
-          </div>
-
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            {steps.map(({ num, icon: Icon, title, desc }) => (
-              <motion.div
-                key={num}
-                variants={item}
-                className="group relative flex gap-6 p-6 rounded-2xl
-                  bg-white/70 dark:bg-white/[0.04]
-                  backdrop-blur-md
-                  border border-black/[0.07] dark:border-white/[0.08]
-                  shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-                  dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
-                  hover:border-primary/30 transition-all duration-200
-                "
-              >
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent rounded-t-2xl" />
-
-                {/* Number */}
-                <span className="absolute top-5 right-6 text-4xl font-black text-foreground/[0.04] group-hover:text-primary/[0.07] transition-colors select-none">
-                  {num}
-                </span>
-
-                {/* Icon */}
-                <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/14 transition-colors">
-                  <Icon className="w-5 h-5 text-primary" />
-                </div>
-
-                <div>
-                  <h3 className="font-bold text-foreground mb-2">{title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
+
+          {/* Timeline wrapper — desktop vertical line */}
+          <div className="relative">
+            {/* Static background line */}
+            <div className="absolute left-1/2 top-5 bottom-5 w-px -translate-x-1/2 bg-border hidden md:block" />
+
+            {steps.map((step, i) => (
+              <TimelineStep key={step.num} step={step} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
