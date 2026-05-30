@@ -82,6 +82,15 @@ const principles = [
 const item = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
 
+const cardClasses = `
+  group relative w-full rounded-2xl p-5 sm:p-6 overflow-hidden
+  bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
+  border border-black/[0.07] dark:border-white/[0.08]
+  shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
+  dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
+  hover:border-primary/30 transition-all duration-200
+`;
+
 function TimelineStep({
   step,
   index,
@@ -94,74 +103,36 @@ function TimelineStep({
   const isLeft = index % 2 === 0;
   const Icon = step.icon;
 
+  const cardInner = (
+    <>
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      <span className="absolute top-4 right-5 text-4xl font-black text-foreground/[0.04] select-none">{step.num}</span>
+      <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4 group-hover:bg-primary/[0.14] transition-colors">
+        <Icon className="w-5 h-5 text-primary" />
+      </div>
+      <h3 className="font-bold text-sm text-foreground mb-2">{step.title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+    </>
+  );
+
+  const dot = (
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      animate={inView ? { scale: 1, opacity: 1 } : {}}
+      transition={{ duration: 0.35, delay: 0.1, type: "spring", stiffness: 300, damping: 20 }}
+      className="w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10 shrink-0
+        shadow-[0_0_0_4px_var(--background),0_0_0_6px_var(--primary)]"
+    >
+      <span className="text-white text-xs font-bold">{step.num}</span>
+    </motion.div>
+  );
+
   return (
-    <div ref={ref} className="relative grid md:grid-cols-[1fr_48px_1fr] gap-0 items-start mb-12 last:mb-0">
+    <div ref={ref} className="mb-10 last:mb-0">
 
-      {/* Left card slot */}
-      <div className={`hidden md:flex justify-end pr-6 ${isLeft ? "" : "invisible"}`}>
-        <motion.div
-          initial={{ opacity: 0, x: -32 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="group relative max-w-sm w-full rounded-2xl p-6 overflow-hidden
-            bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
-            border border-black/[0.07] dark:border-white/[0.08]
-            shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-            dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
-            hover:border-primary/30 transition-all duration-200"
-        >
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-          <span className="absolute top-4 right-5 text-4xl font-black text-foreground/[0.04] select-none">{step.num}</span>
-          <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4 group-hover:bg-primary/[0.14] transition-colors">
-            <Icon className="w-5 h-5 text-primary" />
-          </div>
-          <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-        </motion.div>
-      </div>
-
-      {/* Centre dot */}
-      <div className="hidden md:flex flex-col items-center">
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={inView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 0.35, delay: 0.1, type: "spring", stiffness: 300, damping: 20 }}
-          className="w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10
-            shadow-[0_0_0_4px_var(--background),0_0_0_6px_var(--primary)]"
-        >
-          <span className="text-white text-xs font-bold">{step.num}</span>
-        </motion.div>
-      </div>
-
-      {/* Right card slot */}
-      <div className={`md:pl-6 ${isLeft ? "invisible hidden md:block" : ""}`}>
-        {/* Mobile card (always visible) */}
-        <motion.div
-          initial={{ opacity: 0, x: 32 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`group relative max-w-sm w-full rounded-2xl p-6 overflow-hidden
-            bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
-            border border-black/[0.07] dark:border-white/[0.08]
-            shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-            dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
-            hover:border-primary/30 transition-all duration-200
-            ${isLeft ? "md:invisible" : ""}
-          `}
-        >
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-          <span className="absolute top-4 right-5 text-4xl font-black text-foreground/[0.04] select-none">{step.num}</span>
-          <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-4 group-hover:bg-primary/[0.14] transition-colors">
-            <Icon className="w-5 h-5 text-primary" />
-          </div>
-          <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-        </motion.div>
-      </div>
-
-      {/* Mobile layout: dot + card stacked */}
-      <div className="md:hidden flex gap-4 col-span-full">
-        <div className="flex flex-col items-center gap-0 pt-1 shrink-0">
+      {/* ── Mobile layout (< md) — left line, card on right ── */}
+      <div className="flex gap-4 md:hidden">
+        <div className="flex flex-col items-center shrink-0 pt-1">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={inView ? { scale: 1, opacity: 1 } : {}}
@@ -174,21 +145,47 @@ function TimelineStep({
           <div className="w-px flex-1 bg-border mt-2" />
         </div>
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 0, x: 16 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.45, ease: "easeOut" }}
-          className="group relative flex-1 rounded-2xl p-5 mb-2 overflow-hidden
-            bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
-            border border-black/[0.07] dark:border-white/[0.08]
-            shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-            dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]"
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className={cardClasses + " flex-1 mb-2"}
         >
-          <div className="w-9 h-9 rounded-xl bg-primary/[0.08] flex items-center justify-center mb-3">
-            <Icon className="w-4 h-4 text-primary" />
-          </div>
-          <h3 className="font-bold text-sm text-foreground mb-1.5">{step.title}</h3>
-          <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
+          {cardInner}
         </motion.div>
+      </div>
+
+      {/* ── Desktop layout (md+) — alternating left / right ── */}
+      <div className="hidden md:grid grid-cols-[1fr_48px_1fr] items-start">
+        {/* Left slot */}
+        {isLeft ? (
+          <motion.div
+            initial={{ opacity: 0, x: -32 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className={cardClasses + " mr-6 max-w-sm ml-auto"}
+          >
+            {cardInner}
+          </motion.div>
+        ) : (
+          <div />
+        )}
+
+        {/* Centre dot */}
+        <div className="flex justify-center pt-4">{dot}</div>
+
+        {/* Right slot */}
+        {!isLeft ? (
+          <motion.div
+            initial={{ opacity: 0, x: 32 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className={cardClasses + " ml-6 max-w-sm"}
+          >
+            {cardInner}
+          </motion.div>
+        ) : (
+          <div />
+        )}
       </div>
 
     </div>
