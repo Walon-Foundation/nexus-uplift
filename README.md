@@ -33,15 +33,6 @@ Nexus Uplift was founded after a child died from a treatable asthma attack while
 - **Anaemia** — iron deficiency, nutrition, fatigue
 - **Oral Health** — tooth decay, brushing, fluoride
 
-### Impact Numbers
-
-| Metric | Value |
-|--------|-------|
-| Children educated | 500+ |
-| Health topics covered | 6 |
-| Communities reached | 12+ |
-| Myth rejection rate post-workshop | 95% |
-
 ---
 
 ## Tech Stack
