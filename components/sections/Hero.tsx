@@ -73,7 +73,9 @@ export function Hero() {
               <br />
               Kids Through
               <br />
-              <span className="text-primary">Health</span>
+              <span className="bg-gradient-to-r from-primary via-orange-400 to-amber-400 bg-clip-text text-transparent">
+                Health
+              </span>
             </motion.h1>
 
             <motion.p

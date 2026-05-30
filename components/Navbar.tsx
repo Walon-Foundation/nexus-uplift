@@ -63,16 +63,21 @@ export function Navbar() {
                 <Link
                   href={href}
                   className={cn(
-                    "relative px-3.5 py-2 rounded-md text-sm transition-colors duration-150",
+                    "relative px-3.5 py-2 rounded-md text-sm transition-colors duration-150 flex flex-col items-center gap-0.5",
                     active
                       ? "text-foreground font-semibold"
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
+                  <span>{label}</span>
                   {active && (
-                    <span className="absolute inset-0 rounded-md bg-foreground/[0.06]" />
+                    <motion.span
+                      layoutId="nav-dot"
+                      className="block w-1 h-1 rounded-full bg-primary"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
                   )}
-                  <span className="relative">{label}</span>
+                  {!active && <span className="block w-1 h-1 opacity-0" />}
                 </Link>
               </li>
             );

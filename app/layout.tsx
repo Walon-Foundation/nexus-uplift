@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceWorkerRegistrar } from "@/components/ServiceWorkerRegistrar";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -85,6 +86,7 @@ export default function RootLayout({
         >
           <ServiceWorkerRegistrar />
           <ScrollProgress />
+          <ScrollToTop />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

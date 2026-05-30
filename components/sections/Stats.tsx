@@ -54,16 +54,25 @@ export function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map(({ value, suffix, label, desc }, i) => (
             <motion.div
               key={label}
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-background p-8 group hover:bg-muted transition-colors duration-200"
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.45, delay: i * 0.1 }}
+              className="group relative rounded-2xl p-6 sm:p-8 overflow-hidden
+                bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
+                border border-black/[0.07] dark:border-white/[0.08]
+                shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
+                dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
+                hover:border-primary/30 hover:-translate-y-1
+                hover:shadow-[0_12px_32px_rgba(232,93,63,0.1),inset_0_1px_0_rgba(255,255,255,0.9)]
+                dark:hover:shadow-[0_12px_32px_rgba(232,93,63,0.15),inset_0_1px_0_rgba(255,255,255,0.05)]
+                transition-all duration-300"
             >
-              <p className="text-5xl sm:text-6xl font-black text-primary tracking-tight mb-3 leading-none">
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-br from-primary to-orange-400 bg-clip-text text-transparent tracking-tight mb-3 leading-none">
                 <Counter to={value} suffix={suffix} inView={inView} />
               </p>
               <p className="font-semibold text-sm text-foreground mb-2">{label}</p>
