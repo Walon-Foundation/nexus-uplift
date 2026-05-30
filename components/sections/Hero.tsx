@@ -45,6 +45,16 @@ export function Hero() {
               Science-Based Health Education
             </motion.p>
 
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.04 }}
+              className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-sm border-l-2 border-primary/40 pl-4 italic"
+            >
+              A child died from a treatable asthma attack while the family
+              prayed for a spiritual cure. We exist so that changes.
+            </motion.p>
+
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
