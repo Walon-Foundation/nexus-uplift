@@ -82,7 +82,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-card rounded-xl border border-border border-l-4 border-l-primary p-8"
+                className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] border-l-4 border-l-primary shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] p-8"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5 text-primary" />
@@ -113,7 +113,7 @@ export default function AboutPage() {
               <motion.div
                 key={label}
                 variants={item}
-                className="bg-card rounded-xl border border-border p-6 hover:border-primary/40 hover:shadow-sm transition-all duration-200"
+                className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:border-primary/40 hover:shadow-[0_6px_28px_rgba(232,93,63,0.1)] transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5 text-foreground/60" />
@@ -142,7 +142,7 @@ export default function AboutPage() {
           >
             {team.map((member) => (
               <motion.div key={member.name} variants={item}>
-                <div className="bg-card rounded-xl border border-border p-6 hover:shadow-sm transition-all duration-200">
+                <div className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.1)] transition-all duration-200">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary mb-4">
                     {member.initials}
                   </div>

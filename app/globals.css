@@ -25,7 +25,7 @@
 :root {
   --background: #ffffff;
   --foreground: #1a2744;
-  --card: #ffffff;
+  --card: rgba(255, 255, 255, 0.72);
   --card-foreground: #1a2744;
   --primary: #e85d3f;
   --primary-foreground: #ffffff;
@@ -35,7 +35,7 @@
   --muted-foreground: #64748b;
   --accent: #e85d3f;
   --accent-foreground: #ffffff;
-  --border: #e2e8f0;
+  --border: rgba(0, 0, 0, 0.08);
   --input: #f1f4f8;
   --ring: #e85d3f;
 }
@@ -44,7 +44,7 @@
 .dark {
   --background: #0f1117;
   --foreground: #e8ebf0;
-  --card: #161b27;
+  --card: rgba(255, 255, 255, 0.04);
   --card-foreground: #e8ebf0;
   --primary: #e85d3f;
   --primary-foreground: #ffffff;
@@ -54,7 +54,7 @@
   --muted-foreground: #8896ab;
   --accent: #e85d3f;
   --accent-foreground: #ffffff;
-  --border: #262d3f;
+  --border: rgba(255, 255, 255, 0.09);
   --input: #1e2535;
   --ring: #e85d3f;
 }
