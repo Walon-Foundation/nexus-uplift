@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Kids to Reach",    desc: "Children we aim to equip with science-based health education in Year 1" },
-  { value: 6,   suffix: "",  label: "Health Topics",    desc: "Conditions we will demystify and address in every workshop" },
-  { value: 12,  suffix: "+", label: "Communities",      desc: "Communities we are targeting across the region in our first year" },
-  { value: 2,   suffix: "–3 hrs", label: "Per Workshop", desc: "Each session runs two to three hours, with separate streams for children and caregivers" },
+  { value: 500, suffix: "+",     static: false, display: "",        label: "Kids to Reach",    desc: "Children we aim to equip with science-based health education in Year 1" },
+  { value: 6,   suffix: "",      static: false, display: "",        label: "Health Topics",    desc: "Conditions we will demystify and address in every workshop" },
+  { value: 12,  suffix: "+",     static: false, display: "",        label: "Communities",      desc: "Communities we are targeting across the region in our first year" },
+  { value: 0,   suffix: "",      static: true,  display: "2–3 hrs", label: "Per Workshop",     desc: "Each session runs two to three hours, with separate streams for children and caregivers" },
 ];
 
 function Counter({ to, suffix, inView }: { to: number; suffix: string; inView: boolean }) {
@@ -55,7 +55,7 @@ export function Stats() {
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map(({ value, suffix, label, desc }, i) => (
+          {stats.map(({ value, suffix, static: isStatic, display, label, desc }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, y: 20 }}
@@ -66,14 +66,14 @@ export function Stats() {
                 border border-black/[0.07] dark:border-white/[0.08]
                 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
                 dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
-                hover:border-primary/30 hover:-translate-y-1
-                hover:shadow-[0_12px_32px_rgba(232,93,63,0.1),inset_0_1px_0_rgba(255,255,255,0.9)]
-                dark:hover:shadow-[0_12px_32px_rgba(232,93,63,0.15),inset_0_1px_0_rgba(255,255,255,0.05)]
+                hover:border-primary/30
+                hover:shadow-[0_6px_24px_rgba(232,93,63,0.08),inset_0_1px_0_rgba(255,255,255,0.9)]
+                dark:hover:shadow-[0_6px_24px_rgba(232,93,63,0.12),inset_0_1px_0_rgba(255,255,255,0.05)]
                 transition-all duration-300"
             >
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
               <p className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-br from-primary to-orange-400 bg-clip-text text-transparent tracking-tight mb-3 leading-none">
-                <Counter to={value} suffix={suffix} inView={inView} />
+                {isStatic ? display : <Counter to={value} suffix={suffix} inView={inView} />}
               </p>
               <p className="font-semibold text-sm text-foreground mb-2">{label}</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>

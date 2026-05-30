@@ -60,7 +60,7 @@ export function EmailCapture() {
                   Follow Our First Workshops
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  We are preparing to launch. Get notified when we reach our first community.
+                  Be the first to know when we reach our first community.
                 </p>
               </div>
               <form

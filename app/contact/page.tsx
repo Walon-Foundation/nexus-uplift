@@ -167,12 +167,10 @@ export default function ContactPage() {
                       onChange={(e) => setForm({ ...form, role: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
                     >
-                      <option value="community-member">Community Member</option>
-                      <option value="parent">Parent / Guardian</option>
-                      <option value="teacher">Teacher / Educator</option>
-                      <option value="healthcare">Healthcare Professional</option>
-                      <option value="organisation">Organisation / NGO</option>
-                      <option value="journalist">Journalist / Media</option>
+                      <option value="individual">Individual / Community Member</option>
+                      <option value="educator">Educator / Healthcare Worker</option>
+                      <option value="organisation">Organisation / Partner</option>
+                      <option value="media">Media / Press</option>
                       <option value="other">Other</option>
                     </select>
                   </div>

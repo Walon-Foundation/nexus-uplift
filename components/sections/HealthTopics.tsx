@@ -102,7 +102,6 @@ function GlassCard({ topic }: { topic: (typeof topics)[number] }) {
       backdrop-blur-md
       shadow-[0_4px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.06)]
       hover:shadow-[0_20px_56px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]
-      hover:-translate-y-1.5
       transition-all duration-300 ease-out
     ">
       {/* Top-edge light sheen */}
@@ -203,6 +202,27 @@ export function HealthTopics() {
               <GlassCard topic={topic} />
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Exit path */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-white/[0.06]"
+        >
+          <p className="text-white/40 text-sm max-w-sm leading-relaxed">
+            Want to understand how we turn this knowledge into workshops?
+          </p>
+          <a
+            href="/how-we-work"
+            className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors shrink-0 group"
+          >
+            See how our workshops work
+            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </motion.div>
       </div>
     </section>

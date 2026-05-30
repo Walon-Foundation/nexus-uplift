@@ -8,7 +8,7 @@ const NOISE = `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http:
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative sm:min-h-[90vh] flex items-center overflow-hidden">
 
       {/* ── Gradient mesh ── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -40,7 +40,7 @@ export function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 lg:pt-36 pb-16 sm:pb-24 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left — text */}
           <div>
@@ -96,13 +96,13 @@ export function Hero() {
               className="flex flex-wrap gap-3"
             >
               <Button size="lg" asChild>
-                <a href="/#topics">
-                  Explore Health Topics
+                <a href="/how-we-work">
+                  How We Work
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="/about">Our Story</a>
+                <a href="/contact">Get in Touch</a>
               </Button>
             </motion.div>
           </div>

@@ -48,7 +48,7 @@ export function CTA() {
               </a>
             </Button>
             <Button size="lg" variant="outline-white" asChild>
-              <a href="/about">Our Story</a>
+              <a href="/how-we-work">How We Work</a>
             </Button>
           </div>
         </motion.div>

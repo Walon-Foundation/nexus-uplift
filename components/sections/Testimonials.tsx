@@ -35,7 +35,7 @@ const testimonials = [
   },
 ];
 
-const INTERVAL = 5000;
+const INTERVAL = 8000;
 
 export function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
@@ -64,7 +64,13 @@ export function Testimonials() {
   const t = testimonials[index];
 
   return (
-    <section className="py-16 sm:py-24 bg-muted" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section
+      className="py-16 sm:py-24 bg-muted"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+      onTouchEnd={() => setPaused(false)}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Minimal top row — label + arrows only, no heading */}
@@ -139,19 +145,23 @@ export function Testimonials() {
               <button
                 key={i}
                 onClick={() => go(i, i > index ? 1 : -1)}
-                className="relative h-[3px] rounded-full overflow-hidden transition-all duration-300"
-                style={{ width: i === index ? 32 : 16, background: i === index ? "transparent" : "var(--border)" }}
+                className="relative py-3 flex items-center"
                 aria-label={`Go to story ${i + 1}`}
               >
-                {i === index && (
-                  <motion.div
-                    className="absolute inset-0 bg-primary rounded-full origin-left"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: INTERVAL / 1000, ease: "linear" }}
-                    key={`${index}-progress`}
-                  />
-                )}
+                <span
+                  className="relative block h-2 rounded-full overflow-hidden transition-all duration-300"
+                  style={{ width: i === index ? 32 : 12, background: i === index ? "transparent" : "var(--border)" }}
+                >
+                  {i === index && (
+                    <motion.span
+                      className="absolute inset-0 bg-primary rounded-full origin-left block"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: INTERVAL / 1000, ease: "linear" }}
+                      key={`${index}-progress`}
+                    />
+                  )}
+                </span>
               </button>
             ))}
             <span className="ml-auto text-xs text-muted-foreground tabular-nums">
