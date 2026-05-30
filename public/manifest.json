@@ -1,0 +1,39 @@
+{
+  "name": "Nexus Uplift Foundation",
+  "short_name": "Nexus Uplift",
+  "description": "Empowering kids through science-based health education — removing superstition one child at a time.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050d1a",
+  "theme_color": "#15897a",
+  "orientation": "portrait-primary",
+  "categories": ["health", "education"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Learn About Asthma",
+      "url": "/#asthma",
+      "description": "Science-based asthma education for kids"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact",
+      "description": "Get in touch with Nexus Uplift"
+    }
+  ]
+}
