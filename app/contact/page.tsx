@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, User, Tag, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = [
@@ -111,17 +111,20 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
           >
-            <div className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] shadow-[0_4px_28px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_28px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.05)] p-8">
+            <div className="relative bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-2xl border border-black/[0.07] dark:border-white/[0.08] shadow-[0_4px_28px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_28px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.05)] overflow-hidden">
+              {/* Top accent */}
+              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+                  className="text-center py-16 px-8"
                 >
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle className="w-7 h-7 text-primary" />
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-8 h-8 text-primary" />
                   </div>
-                  <h2 className="text-2xl font-bold text-foreground mb-2">Message Sent</h2>
+                  <h2 className="font-display text-2xl text-foreground mb-2">Message Sent</h2>
                   <p className="text-muted-foreground mb-8">
                     Thank you for reaching out. We&apos;ll get back to you within 2 business days.
                   </p>
@@ -130,89 +133,142 @@ export default function ContactPage() {
                   </Button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-1.5">
-                        Full Name <span className="text-primary">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Your full name"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground"
-                      />
+                <form onSubmit={handleSubmit}>
+                  {/* Form header */}
+                  <div className="flex items-center gap-3 px-8 py-5 border-b border-border">
+                    <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <MessageSquare className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-1.5">
-                        Email Address <span className="text-primary">*</span>
+                      <p className="text-sm font-semibold text-foreground">Send us a message</p>
+                      <p className="text-xs text-muted-foreground">We respond within 2 business days</p>
+                    </div>
+                  </div>
+
+                  <div className="p-8 space-y-6">
+                    {/* Name + Email */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="space-y-1.5">
+                        <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          Full Name <span className="text-primary">*</span>
+                        </label>
+                        <div className="relative">
+                          <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
+                          <input
+                            type="text"
+                            required
+                            placeholder="Your full name"
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-muted/40 dark:bg-white/[0.03] text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-background dark:focus:bg-white/[0.06] transition-all placeholder:text-muted-foreground/60"
+                          />
+                        </div>
+                      </div>
+                      <div className="space-y-1.5">
+                        <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          Email Address <span className="text-primary">*</span>
+                        </label>
+                        <div className="relative">
+                          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
+                          <input
+                            type="email"
+                            required
+                            placeholder="you@example.com"
+                            value={form.email}
+                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+                            className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-muted/40 dark:bg-white/[0.03] text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-background dark:focus:bg-white/[0.06] transition-all placeholder:text-muted-foreground/60"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Role chips */}
+                    <div className="space-y-2">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        I am a&hellip;
                       </label>
-                      <input
-                        type="email"
+                      <div className="flex flex-wrap gap-2">
+                        {[
+                          { value: "individual",   label: "Individual" },
+                          { value: "educator",     label: "Educator / Healthcare" },
+                          { value: "organisation", label: "Organisation" },
+                          { value: "media",        label: "Media / Press" },
+                          { value: "other",        label: "Other" },
+                        ].map(({ value, label }) => (
+                          <button
+                            key={value}
+                            type="button"
+                            onClick={() => setForm({ ...form, role: value })}
+                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
+                              form.role === value
+                                ? "bg-primary text-white border-primary shadow-[0_4px_14px_rgba(212,82,46,0.35)]"
+                                : "bg-muted/60 dark:bg-white/[0.04] border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                            }`}
+                          >
+                            {label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Subject */}
+                    <div className="space-y-1.5">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        Subject <span className="text-primary">*</span>
+                      </label>
+                      <div className="relative">
+                        <Tag className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
+                        <input
+                          type="text"
+                          required
+                          placeholder="What is this about?"
+                          value={form.subject}
+                          onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-border bg-muted/40 dark:bg-white/[0.03] text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-background dark:focus:bg-white/[0.06] transition-all placeholder:text-muted-foreground/60"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Message */}
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          Message <span className="text-primary">*</span>
+                        </label>
+                        <span className="text-xs text-muted-foreground tabular-nums">
+                          {form.message.length} / 1000
+                        </span>
+                      </div>
+                      <textarea
                         required
-                        placeholder="you@example.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground"
+                        rows={6}
+                        maxLength={1000}
+                        placeholder="Tell us more about what you have in mind…"
+                        value={form.message}
+                        onChange={(e) => setForm({ ...form, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-muted/40 dark:bg-white/[0.03] text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-background dark:focus:bg-white/[0.06] transition-all placeholder:text-muted-foreground/60 resize-none"
                       />
                     </div>
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">I am a&hellip;</label>
-                    <select
-                      value={form.role}
-                      onChange={(e) => setForm({ ...form, role: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all"
-                    >
-                      <option value="individual">Individual / Community Member</option>
-                      <option value="educator">Educator / Healthcare Worker</option>
-                      <option value="organisation">Organisation / Partner</option>
-                      <option value="media">Media / Press</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
+                    {error && (
+                      <div className="flex items-start gap-3 rounded-xl border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-950/20 px-4 py-3">
+                        <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+                      </div>
+                    )}
 
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Subject <span className="text-primary">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="What is this about?"
-                      value={form.subject}
-                      onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-1.5">
-                      Message <span className="text-primary">*</span>
-                    </label>
-                    <textarea
-                      required
-                      rows={6}
-                      placeholder="Tell us more..."
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground resize-none"
-                    />
-                  </div>
-
-                  {error && (
-                    <div className="flex items-start gap-3 rounded-lg border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-950/20 px-4 py-3">
-                      <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-                      <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+                    {/* Submit row */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-border">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        Your message goes directly to our team.<br className="hidden sm:block" />
+                        We never share your information with third parties.
+                      </p>
+                      <Button type="submit" size="lg" className="gap-2 shrink-0" disabled={loading}>
+                        <Send className="w-4 h-4" />
+                        {loading ? "Sending…" : "Send Message"}
+                      </Button>
                     </div>
-                  )}
-                  <Button type="submit" size="lg" className="gap-2" disabled={loading}>
-                    <Send className="w-4 h-4" />
-                    {loading ? "Sending…" : "Send Message"}
-                  </Button>
+                  </div>
                 </form>
               )}
             </div>
