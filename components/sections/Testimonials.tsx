@@ -67,22 +67,17 @@ export function Testimonials() {
     <section className="py-16 sm:py-24 bg-muted" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
+        {/* Minimal top row — label + arrows only, no heading */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.4 }}
+          className="flex items-center justify-between mb-8"
         >
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">Stories</p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Voices From the Community
-            </h2>
-          </div>
-
-          {/* Navigation arrows */}
+          <p className="text-xs font-bold uppercase tracking-widest text-primary">
+            In Their Words
+          </p>
           <div className="flex items-center gap-2">
             <button
               onClick={() => go(index - 1, -1)}

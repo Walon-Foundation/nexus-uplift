@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
   MapPin, Users, BookOpen, ClipboardCheck,
-  MessageCircle, Microscope, RefreshCw, BarChart3,
+  Microscope, BarChart3,
   LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,50 +13,38 @@ const steps = [
   {
     num: "01",
     icon: MapPin,
-    title: "Community Identification",
-    desc: "We work with local leaders, teachers, and healthcare workers to identify communities where health myths are causing the most harm. Priority is given to areas with low clinic attendance and high rates of myth-driven treatment delays.",
+    title: "Finding the Right Communities",
+    desc: "We start by talking — to local leaders, teachers, and clinics. We look for communities where specific health myths are actively delaying treatment. Before we enter, we understand exactly what is being believed and why.",
   },
   {
     num: "02",
-    icon: MessageCircle,
-    title: "Needs & Myth Assessment",
-    desc: "Before entering a community, we conduct informal conversations to understand the specific beliefs in circulation. Myths differ by region — what is believed about asthma in one community may differ from the next. Our content adapts accordingly.",
+    icon: Users,
+    title: "Training Local Educators",
+    desc: "We do not parachute in. We recruit teachers, nurses, and community health workers who already have the trust of their neighbours. We train them in the science behind each topic and in how to address beliefs respectfully — not dismissively.",
   },
   {
     num: "03",
-    icon: Users,
-    title: "Volunteer Educator Training",
-    desc: "We recruit and train local volunteers — teachers, nurses, and community health workers — to lead the workshops. Training covers the science behind each health topic, child-friendly communication, and how to address myths respectfully without alienating families.",
+    icon: BookOpen,
+    title: "The Workshop",
+    desc: "Two to three hours. Children aged 8–16 in one room, parents and caregivers in another. No lectures — real conversations, local language where possible, visual materials, and the specific myths of that specific community addressed directly.",
   },
   {
     num: "04",
-    icon: BookOpen,
-    title: "The Workshop",
-    desc: "Each workshop runs for two to three hours and is designed for children aged 8–16, with parallel sessions for parents and caregivers. Content is delivered in plain language and, where possible, local languages. We use visual materials, real-life scenarios, and open discussion — not lectures.",
+    icon: Microscope,
+    title: "Science Over Superstition",
+    desc: "Every topic follows the same logic: state the myth clearly, explain why people believe it without condescension, then replace it with medical fact and practical guidance. We never mock. We replace fear with something more useful.",
   },
   {
     num: "05",
-    icon: Microscope,
-    title: "Science Over Superstition",
-    desc: "Each of our six health topics is covered with the same structure: name the myth, explain why people believe it, present the medical evidence clearly, and give practical guidance. We never mock cultural beliefs — we replace fear with knowledge.",
+    icon: ClipboardCheck,
+    title: "Measurement & Follow-Up",
+    desc: "Participants complete anonymous surveys before and after. Trained local volunteers stay in the community to answer questions and correct new misinformation as it surfaces. A workshop is an event. The goal is lasting change.",
   },
   {
     num: "06",
-    icon: ClipboardCheck,
-    title: "Before & After Survey",
-    desc: "Every participant completes a short anonymous survey before and after the workshop. We track changes in belief about specific health myths, confidence in seeking medical care, and intention to visit a clinic for the conditions covered.",
-  },
-  {
-    num: "07",
-    icon: RefreshCw,
-    title: "Community Follow-Up",
-    desc: "Trained local volunteers remain in the community after the workshop to answer questions, correct misinformation as it resurfaces, and refer families to appropriate care. The goal is lasting change, not a single event.",
-  },
-  {
-    num: "08",
     icon: BarChart3,
-    title: "Impact Reporting",
-    desc: "We compile survey data and field observations into transparent reports shared with partners and funders. Our primary metric is myth rejection rate — the proportion of participants who, after the workshop, correctly identify a health condition as medical rather than spiritual.",
+    title: "Transparent Reporting",
+    desc: "We publish what we find — the numbers that went up and the ones that did not. Our funders and partners see the same data we do. We believe organisations that hide their results should not be trusted with children's health.",
   },
 ];
 
@@ -224,7 +212,7 @@ export default function HowWeWorkPage() {
             className="mb-16"
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">The Process</p>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground">Eight Steps, One Goal</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Six Steps, One Goal</h2>
           </motion.div>
 
           {/* Timeline wrapper — desktop vertical line */}

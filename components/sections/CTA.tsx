@@ -26,9 +26,9 @@ export function CTA() {
 
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-4">
             Get Involved

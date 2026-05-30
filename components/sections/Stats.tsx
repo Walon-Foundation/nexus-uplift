@@ -4,10 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Kids to Reach",   desc: "Children we aim to equip with science-based health education in Year 1" },
-  { value: 6,   suffix: "",  label: "Health Topics",   desc: "Conditions we will demystify and address in every workshop" },
-  { value: 12,  suffix: "+", label: "Communities",     desc: "Communities we are targeting across the region in our first year" },
-  { value: 95,  suffix: "%", label: "Myth Rejection",  desc: "Target rate of participants who reject health superstitions post-workshop" },
+  { value: 500, suffix: "+", label: "Kids to Reach",    desc: "Children we aim to equip with science-based health education in Year 1" },
+  { value: 6,   suffix: "",  label: "Health Topics",    desc: "Conditions we will demystify and address in every workshop" },
+  { value: 12,  suffix: "+", label: "Communities",      desc: "Communities we are targeting across the region in our first year" },
+  { value: 2,   suffix: "–3 hrs", label: "Per Workshop", desc: "Each session runs two to three hours, with separate streams for children and caregivers" },
 ];
 
 function Counter({ to, suffix, inView }: { to: number; suffix: string; inView: boolean }) {

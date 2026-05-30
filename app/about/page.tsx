@@ -9,25 +9,25 @@ const team = [
     name: "Dr. Aminata Sesay",
     role: "Founder & Medical Director",
     initials: "AS",
-    bio: "Paediatrician with 12 years in community health. Frustrated by preventable deaths caused by health myths, she founded Nexus Uplift to fix that.",
+    bio: "She has watched children die from conditions that an inhaler or a clinic visit would have fixed. That is why Nexus Uplift exists. She handles the medicine — and the mission.",
   },
   {
     name: "Ibrahim Koroma",
     role: "Education Lead",
     initials: "IK",
-    bio: "Former teacher and curriculum designer. Ibrahim transforms complex medical content into joyful, accessible workshops for children.",
+    bio: "Ibrahim spent years turning textbooks into something children actually want to sit through. He does the same here — except the subject matter is their own health.",
   },
   {
     name: "Fatmata Bangura",
     role: "Community Outreach",
     initials: "FB",
-    bio: "Trained social worker with deep ties across 12 communities. Fatmata builds trust and ensures workshops are culturally sensitive.",
+    bio: "She grew up in the communities we serve. When she tells a family that asthma is not a curse, they believe her — because she is one of them.",
   },
   {
     name: "Sorie Kamara",
     role: "Operations & Partnerships",
     initials: "SK",
-    bio: "Nonprofit management expert who handles logistics, funding, and partnerships to keep Nexus Uplift running and growing.",
+    bio: "Someone has to make sure the logistics work, the funders are informed, and the team can actually show up. That is Sorie. Without him, none of this moves.",
   },
 ];
 
