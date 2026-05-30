@@ -86,6 +86,7 @@ export function MythBuster() {
             <button
               key={label}
               onClick={() => setActive(i)}
+              aria-pressed={active === i}
               className={`
                 flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-full text-sm font-semibold whitespace-nowrap shrink-0
                 border transition-all duration-200 min-h-[44px] sm:min-h-0

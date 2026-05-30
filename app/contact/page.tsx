@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@nexusuplift.org", href: "mailto:hello@nexusuplift.org" },
-  { icon: Phone, label: "Phone", value: "+232 76 000 0000", href: "tel:+23276000000" },
-  { icon: MapPin, label: "Location", value: "Freetown, Sierra Leone", href: "#" },
+  { icon: Mail,  label: "Email",    value: "hello@nexusuplift.org", href: "mailto:hello@nexusuplift.org" },
+  { icon: Phone, label: "Phone",    value: "+232 33 482 361",       href: "tel:+23233482361" },
+  { icon: MapPin,label: "Location", value: "Freetown, Sierra Leone", href: "https://maps.google.com/?q=Freetown,+Sierra+Leone" },
 ];
 
 const howWeHelp = [
@@ -204,7 +204,10 @@ export default function ContactPage() {
                   </div>
 
                   {error && (
-                    <p className="text-sm text-red-500">{error}</p>
+                    <div className="flex items-start gap-3 rounded-lg border border-red-200/60 dark:border-red-500/20 bg-red-50/80 dark:bg-red-950/20 px-4 py-3">
+                      <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                      <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+                    </div>
                   )}
                   <Button type="submit" size="lg" className="gap-2" disabled={loading}>
                     <Send className="w-4 h-4" />

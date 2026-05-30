@@ -75,9 +75,9 @@ export function EmailCapture() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full sm:w-56 px-4 py-2.5 rounded-lg border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all placeholder:text-muted-foreground"
                 />
-                <Button type="submit" size="default" className="w-full sm:w-auto">
+                <Button type="submit" size="default" className="w-full sm:w-auto gap-2">
+                  Stay Updated
                   <ArrowRight className="w-4 h-4" />
-                  <span className="sm:hidden ml-2">Stay Updated</span>
                 </Button>
               </form>
             </div>
