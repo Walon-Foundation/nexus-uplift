@@ -74,6 +74,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-dvh flex flex-col antialiased">
         <ThemeProvider
