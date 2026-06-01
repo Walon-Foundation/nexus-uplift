@@ -79,7 +79,7 @@ export default function ContactPage() {
               <a
                 key={label}
                 href={href}
-                className="flex items-start gap-4 p-4 rounded-lg bg-white/70 dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.07] dark:border-white/[0.08] shadow-[0_2px_12px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:border-primary/40 hover:shadow-[0_6px_24px_rgba(77,182,172,0.08)] transition-all duration-200 group"
+                className="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-white/[0.05] border border-border shadow-sm hover:border-primary/40 transition-all duration-200 group"
               >
                 <div className="w-9 h-9 bg-muted rounded-lg flex items-center justify-center shrink-0">
                   <Icon className="w-4 h-4 text-foreground/60" />
@@ -91,7 +91,7 @@ export default function ContactPage() {
               </a>
             ))}
 
-            <div className="p-5 rounded-lg bg-white/50 dark:bg-white/[0.03] backdrop-blur-md border border-black/[0.07] dark:border-white/[0.07] shadow-[0_1px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.2)] mt-2">
+            <div className="p-5 rounded-lg bg-white dark:bg-white/[0.05] border border-border mt-2">
               <h3 className="font-semibold text-sm text-foreground mb-3">How Can We Help?</h3>
               <ul className="space-y-2">
                 {howWeHelp.map((item) => (
@@ -111,7 +111,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
           >
-            <div className="relative bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-2xl border border-black/[0.07] dark:border-white/[0.08] shadow-[0_4px_28px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_28px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.05)] overflow-hidden">
+            <div className="relative bg-white dark:bg-white/[0.05] rounded-2xl border border-border shadow-sm overflow-hidden">
               {/* Top accent */}
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
@@ -201,7 +201,7 @@ export default function ContactPage() {
                             onClick={() => setForm({ ...form, role: value })}
                             className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                               form.role === value
-                                ? "bg-primary text-white border-primary shadow-[0_4px_14px_rgba(77,182,172,0.35)]"
+                                ? "bg-primary text-white border-primary "
                                 : "bg-muted/60 dark:bg-white/[0.04] border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
                             }`}
                           >

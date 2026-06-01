@@ -82,15 +82,11 @@ export function Mission() {
                 key={title}
                 className="
                   group relative rounded-2xl p-6 overflow-hidden
-                  bg-white/70 dark:bg-white/[0.04]
-                  backdrop-blur-md
-                  border border-black/[0.07] dark:border-white/[0.08]
-                  shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-                  dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.06)]
-                  hover:border-primary/40 dark:hover:border-primary/40
-                  hover:shadow-[0_6px_24px_rgba(77,182,172,0.10),inset_0_1px_0_rgba(255,255,255,0.9)]
-                  dark:hover:shadow-[0_6px_24px_rgba(77,182,172,0.12),inset_0_1px_0_rgba(255,255,255,0.06)]
-                  transition-all duration-300
+                  bg-white dark:bg-white/[0.05]
+                  border border-border
+                  shadow-sm
+                  hover:border-primary/40
+                  transition-all duration-200
                 "
               >
                 {/* Ghost number */}

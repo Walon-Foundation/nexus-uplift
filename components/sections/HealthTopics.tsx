@@ -90,11 +90,10 @@ function GlassCard({ topic }: { topic: (typeof topics)[number] }) {
   const Icon = topic.icon;
   return (
     <div className="relative rounded-2xl p-6 overflow-hidden group cursor-default
-      bg-white/[0.04] border border-white/[0.08]
-      backdrop-blur-md
-      shadow-[0_4px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.06)]
-      hover:shadow-[0_20px_56px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.12)]
-      transition-all duration-300 ease-out
+      bg-white/[0.05] border border-white/[0.08]
+      shadow-[0_2px_12px_rgba(0,0,0,0.25)]
+      hover:border-white/[0.15]
+      transition-all duration-200
     ">
       {/* Top-edge light sheen */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />

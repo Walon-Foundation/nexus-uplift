@@ -87,14 +87,14 @@ export function Testimonials() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => go(index - 1, -1)}
-              className="w-10 h-10 rounded-full backdrop-blur-md bg-white/70 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] hover:border-primary/50 shadow-[0_1px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="w-10 h-10 rounded-full bg-white dark:bg-white/[0.05] border border-border hover:border-primary/50 flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Previous"
             >
               <ChevronLeft className="w-4 h-4 text-muted-foreground" />
             </button>
             <button
               onClick={() => go(index + 1, 1)}
-              className="w-10 h-10 rounded-full backdrop-blur-md bg-white/70 dark:bg-white/[0.05] border border-black/[0.08] dark:border-white/[0.08] hover:border-primary/50 shadow-[0_1px_8px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_8px_rgba(0,0,0,0.25)] flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="w-10 h-10 rounded-full bg-white dark:bg-white/[0.05] border border-border hover:border-primary/50 flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               aria-label="Next"
             >
               <ChevronRight className="w-4 h-4 text-muted-foreground" />
@@ -108,7 +108,7 @@ export function Testimonials() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <div className="relative overflow-hidden rounded-2xl bg-white/70 dark:bg-white/[0.04] backdrop-blur-md border border-black/[0.07] dark:border-white/[0.08] shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)] min-h-[220px]">
+          <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-white/[0.05] border border-border shadow-sm min-h-[220px]">
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
                 key={index}

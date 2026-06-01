@@ -92,8 +92,8 @@ export function MythBuster() {
                 border transition-all duration-200 min-h-[44px] sm:min-h-0
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
                 ${active === i
-                  ? "bg-primary text-white border-primary shadow-[0_4px_16px_rgba(77,182,172,0.3)]"
-                  : "bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm border-black/[0.08] dark:border-white/[0.08] text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                  ? "bg-primary text-white border-primary"
+                  : "bg-white dark:bg-white/[0.05] border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 }
               `}
             >
@@ -116,10 +116,7 @@ export function MythBuster() {
             {/* Myth */}
             <div className="relative rounded-2xl p-5 sm:p-7 overflow-hidden
               bg-red-50/80 dark:bg-red-950/20
-              backdrop-blur-md
               border border-red-200/60 dark:border-red-500/15
-              shadow-[0_2px_20px_rgba(239,68,68,0.06)]
-              dark:shadow-[0_4px_24px_rgba(239,68,68,0.08)]
             ">
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-red-300/30 to-transparent dark:via-red-500/20" />
               <div className="flex items-center gap-3 mb-5">
@@ -138,10 +135,7 @@ export function MythBuster() {
             {/* Fact */}
             <div className="relative rounded-2xl p-5 sm:p-7 overflow-hidden
               bg-emerald-50/80 dark:bg-emerald-950/20
-              backdrop-blur-md
               border border-emerald-200/60 dark:border-emerald-500/15
-              shadow-[0_2px_20px_rgba(16,185,129,0.06)]
-              dark:shadow-[0_4px_24px_rgba(16,185,129,0.08)]
             ">
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-300/30 to-transparent dark:via-emerald-500/20" />
               <div className="flex items-center gap-3 mb-5">

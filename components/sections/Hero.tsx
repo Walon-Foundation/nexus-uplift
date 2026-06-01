@@ -113,7 +113,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden bg-[#0f2f2d] p-8 shadow-[0_24px_80px_rgba(10,46,44,0.25)]">
+            <div className="relative rounded-2xl overflow-hidden bg-[#0f2f2d] p-8 shadow-lg">
               {/* Top sheen */}
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 

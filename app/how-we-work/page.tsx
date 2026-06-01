@@ -70,11 +70,10 @@ const principles = [
 
 const cardClasses = `
   group relative w-full rounded-2xl p-5 sm:p-6 overflow-hidden
-  bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
-  border border-black/[0.07] dark:border-white/[0.08]
-  shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-  dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
-  hover:border-primary/30 transition-all duration-200
+  bg-white dark:bg-white/[0.05]
+  border border-border
+  shadow-sm
+  hover:border-primary/40 transition-all duration-200
 `;
 
 function TimelineStep({
@@ -242,10 +241,8 @@ export default function HowWeWorkPage() {
             {principles.map(({ title, desc }) => (
               <div
                 key={title}
-                className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl
-                  border border-black/[0.07] dark:border-white/[0.08]
-                  shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-                  dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
+                className="bg-white dark:bg-white/[0.05] rounded-xl
+                  border border-border shadow-sm
                   p-6"
               >
                 <div className="w-1.5 h-6 rounded-full bg-primary mb-4" />
@@ -279,10 +276,8 @@ export default function HowWeWorkPage() {
               <div
                 key={metric}
                 className="relative rounded-xl p-6 overflow-hidden
-                  bg-white/70 dark:bg-white/[0.04] backdrop-blur-md
-                  border border-black/[0.07] dark:border-white/[0.08]
-                  shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
-                  dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]"
+                  bg-white dark:bg-white/[0.05]
+                  border border-border shadow-sm"
               >
                 <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary" />
                 <h3 className="font-bold text-sm text-foreground mb-3">{metric}</h3>
