@@ -92,7 +92,7 @@ export function MythBuster() {
                 border transition-all duration-200 min-h-[44px] sm:min-h-0
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
                 ${active === i
-                  ? "bg-primary text-white border-primary shadow-[0_4px_16px_rgba(232,93,63,0.3)]"
+                  ? "bg-primary text-white border-primary shadow-[0_4px_16px_rgba(77,182,172,0.3)]"
                   : "bg-white/60 dark:bg-white/[0.04] backdrop-blur-sm border-black/[0.08] dark:border-white/[0.08] text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 }
               `}

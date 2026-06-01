@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-open-sans);
   --font-mono: var(--font-geist-mono);
 
   --color-background: var(--background);
@@ -23,40 +23,40 @@
 
 /* ── Light mode ── */
 :root {
-  --background: #fdfaf7;
-  --foreground: #1a2744;
-  --card: rgba(255, 255, 255, 0.75);
-  --card-foreground: #1a2744;
-  --primary: #d4522e;
+  --background: #F8FAFC;
+  --foreground: #2D3748;
+  --card: #ffffff;
+  --card-foreground: #2D3748;
+  --primary: #4DB6AC;
   --primary-foreground: #ffffff;
-  --secondary: #1a2744;
-  --secondary-foreground: #ffffff;
-  --muted: #f2ede8;
-  --muted-foreground: #64748b;
-  --accent: #d4522e;
-  --accent-foreground: #ffffff;
+  --secondary: #A8D5BA;
+  --secondary-foreground: #2D3748;
+  --muted: #EEF2F7;
+  --muted-foreground: #718096;
+  --accent: #CDB4DB;
+  --accent-foreground: #2D3748;
   --border: rgba(0, 0, 0, 0.08);
-  --input: #ede8e2;
-  --ring: #d4522e;
+  --input: #E8F0EF;
+  --ring: #4DB6AC;
 }
 
 /* ── Dark mode ── */
 .dark {
-  --background: #0f1117;
-  --foreground: #e8ebf0;
-  --card: rgba(255, 255, 255, 0.04);
-  --card-foreground: #e8ebf0;
-  --primary: #d4522e;
+  --background: #121826;
+  --foreground: #F1F5F9;
+  --card: #1E293B;
+  --card-foreground: #F1F5F9;
+  --primary: #2A9D8F;
   --primary-foreground: #ffffff;
-  --secondary: #e8ebf0;
-  --secondary-foreground: #0f1117;
-  --muted: #1e2535;
-  --muted-foreground: #8896ab;
-  --accent: #d4522e;
-  --accent-foreground: #ffffff;
+  --secondary: #5C8D6A;
+  --secondary-foreground: #F1F5F9;
+  --muted: #1E293B;
+  --muted-foreground: #CBD5E1;
+  --accent: #8E7DBE;
+  --accent-foreground: #F1F5F9;
   --border: rgba(255, 255, 255, 0.09);
-  --input: #1e2535;
-  --ring: #d4522e;
+  --input: #253347;
+  --ring: #2A9D8F;
 }
 
 /* ── Gradient mesh animations ── */
@@ -75,9 +75,9 @@
 
 /* ── Display font utility ── */
 .font-display {
-  font-family: var(--font-dm-serif), Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 /* ── Base ── */

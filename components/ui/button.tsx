@@ -11,9 +11,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(232,93,63,0.4)] active:translate-y-0 active:shadow-none",
+          "bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(77,182,172,0.4)] active:translate-y-0 active:shadow-none",
         glow:
-          "bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(232,93,63,0.4)] active:translate-y-0 active:shadow-none",
+          "bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-[1px] hover:shadow-[0_8px_24px_rgba(77,182,172,0.4)] active:translate-y-0 active:shadow-none",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         outline:
@@ -23,7 +23,7 @@ const buttonVariants = cva(
         link:
           "text-primary underline-offset-4 hover:underline",
         navy:
-          "bg-[#1a2744] text-white hover:bg-[#1a2744]/90",
+          "bg-[#0f2f2d] text-white hover:bg-[#0f2f2d]/90",
         "outline-white":
           "border border-white/40 bg-transparent text-white hover:bg-white/10",
       },

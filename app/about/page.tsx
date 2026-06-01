@@ -110,7 +110,7 @@ export default function AboutPage() {
             {values.map(({ icon: Icon, label, desc }) => (
               <div
                 key={label}
-                className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:border-primary/40 hover:shadow-[0_6px_28px_rgba(232,93,63,0.1)] transition-all duration-200"
+                className="bg-white/70 dark:bg-white/[0.04] backdrop-blur-md rounded-xl border border-black/[0.07] dark:border-white/[0.08] p-6 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)] hover:border-primary/40 hover:shadow-[0_6px_28px_rgba(77,182,172,0.1)] transition-all duration-200"
               >
                 <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5 text-foreground/60" />

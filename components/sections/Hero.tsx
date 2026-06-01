@@ -25,7 +25,7 @@ export function Hero() {
           style={{ animation: "drift-1 10s ease-in-out infinite" }}
         />
         <div
-          className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full bg-[#1a2744]/[0.07] blur-[100px]"
+          className="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full bg-secondary/[0.12] blur-[100px]"
           style={{ animation: "drift-2 13s ease-in-out infinite" }}
         />
         <div
@@ -73,7 +73,7 @@ export function Hero() {
               <br />
               Kids Through
               <br />
-              <span className="bg-gradient-to-r from-primary via-orange-400 to-amber-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#4DB6AC] via-[#A8D5BA] to-[#CDB4DB] bg-clip-text text-transparent">
                 Health
               </span>
             </motion.h1>
@@ -113,7 +113,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative rounded-2xl overflow-hidden bg-[#1a2744] p-8 shadow-[0_24px_80px_rgba(26,39,68,0.18)]">
+            <div className="relative rounded-2xl overflow-hidden bg-[#0f2f2d] p-8 shadow-[0_24px_80px_rgba(10,46,44,0.25)]">
               {/* Top sheen */}
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 

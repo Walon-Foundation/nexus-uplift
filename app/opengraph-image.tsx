@@ -15,7 +15,7 @@ export default function OGImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#1a2744",
+          backgroundColor: "#0f2f2d",
           padding: "72px 80px",
           fontFamily: "system-ui, sans-serif",
           position: "relative",
@@ -41,7 +41,7 @@ export default function OGImage() {
             width: 500,
             height: 500,
             borderRadius: "50%",
-            background: "rgba(232,93,63,0.18)",
+            background: "rgba(77,182,172,0.25)",
             filter: "blur(120px)",
           }}
         />
@@ -53,7 +53,7 @@ export default function OGImage() {
               width: 44,
               height: 44,
               borderRadius: 12,
-              background: "#e85d3f",
+              background: "#4DB6AC",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -74,7 +74,7 @@ export default function OGImage() {
               fontWeight: 700,
               textTransform: "uppercase",
               letterSpacing: "0.12em",
-              color: "#e85d3f",
+              color: "#4DB6AC",
             }}
           >
             Science-Based Health Education
@@ -108,7 +108,7 @@ export default function OGImage() {
           <span style={{ fontSize: 16, color: "rgba(255,255,255,0.35)", letterSpacing: "0.04em" }}>
             Freetown, Sierra Leone
           </span>
-          <div style={{ width: 48, height: 4, borderRadius: 99, background: "#e85d3f" }} />
+          <div style={{ width: 48, height: 4, borderRadius: 99, background: "#4DB6AC" }} />
         </div>
       </div>
     ),

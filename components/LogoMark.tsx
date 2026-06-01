@@ -10,11 +10,11 @@ export function LogoMark({ size = 28, className = "" }: { size?: number; classNa
       aria-hidden="true"
     >
       {/* Navy rounded square */}
-      <rect width="100" height="100" rx="22" fill="#1a2744" />
-      {/* Coral leaf */}
+      <rect width="100" height="100" rx="22" fill="#0f2f2d" />
+      {/* Teal leaf */}
       <path
         d="M50 18 C34 18 25 32 28 50 C31 66 43 74 50 76 C57 74 69 66 72 50 C75 32 66 18 50 18Z"
-        fill="#e85d3f"
+        fill="#4DB6AC"
       />
       {/* White centre vein */}
       <line

@@ -14,7 +14,7 @@ const badgeVariants = cva(
         muted:
           "border-transparent bg-muted text-muted-foreground",
         navy:
-          "border-transparent bg-[#1a2744] text-white dark:bg-white/10 dark:text-white",
+          "border-transparent bg-[#0f2f2d] text-white dark:bg-white/10 dark:text-white",
         success:
           "border-transparent bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400",
         info:

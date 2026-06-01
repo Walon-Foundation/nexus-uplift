@@ -69,12 +69,12 @@ export function Stats() {
                 shadow-[0_2px_20px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.9)]
                 dark:shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.05)]
                 hover:border-primary/30
-                hover:shadow-[0_6px_24px_rgba(232,93,63,0.08),inset_0_1px_0_rgba(255,255,255,0.9)]
-                dark:hover:shadow-[0_6px_24px_rgba(232,93,63,0.12),inset_0_1px_0_rgba(255,255,255,0.05)]
+                hover:shadow-[0_6px_24px_rgba(77,182,172,0.08),inset_0_1px_0_rgba(255,255,255,0.9)]
+                dark:hover:shadow-[0_6px_24px_rgba(77,182,172,0.12),inset_0_1px_0_rgba(255,255,255,0.05)]
                 transition-all duration-300"
             >
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-              <p className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-br from-primary to-orange-400 bg-clip-text text-transparent tracking-tight mb-3 leading-none">
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-br from-[#4DB6AC] to-[#A8D5BA] bg-clip-text text-transparent tracking-tight mb-3 leading-none">
                 {fixed ? display : <Counter to={value} suffix={suffix} inView={inView} />}
               </p>
               <p className="font-semibold text-sm text-foreground mb-2">{label}</p>
